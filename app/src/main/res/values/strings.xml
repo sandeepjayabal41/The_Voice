@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">The Voice</string>
+    <string name="map_view">Map view</string>
 </resources>
