@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<!-- iphone_13_pro_max___1 strings -->
 	<string name="app_name">The Voice</string>
 	<string name="map_view">Map view</string>
 	<string name="ek_img_content">ExportKit Image</string>
@@ -11,4 +10,5 @@
 	<string name="if_you_are_new_here_sign_up_string">if you are new here Sign Up</string>
 	<string name="userid_ek1_string">Userid</string>
 	<string name="password_ek1_string">password</string>
+	<string name="title_activity_maps">MapsActivity</string>
 </resources>
