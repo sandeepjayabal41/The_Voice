@@ -15,5 +15,6 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="peace">Peace</string>
-    <string name="image_1">image_1</string>
+    <string name="email_id">Email ID</string>
+    <string name="login">Login</string>
 </resources>
