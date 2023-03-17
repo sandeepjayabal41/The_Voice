@@ -6,156 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/image_1"
-        android:layout_width="458dp"
-        android:layout_height="930dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:contentDescription="image_1"
-        android:src="@drawable/image_1"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
-
     <Button
         android:id="@+id/MapViewButton"
         android:layout_width="157dp"
         android:layout_height="51dp"
-        android:layout_marginLeft="156dp"
-        android:layout_marginTop="752dp"
-        android:fontFamily="Inter"
-        android:text="@string/map_view_string"
-        android:textColor="@color/map_view_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
+        android:text="MapView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.875" />
 
-    <TextView
-        android:id="@+id/care_home"
-        android:layout_width="425dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="655dp"
-        android:fontFamily="Inter"
-        android:text="@string/care_home_string"
-        android:textColor="@color/_bg__iphone_13_pro_max___1_ek2_color"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/line_1"
-        android:layout_width="377dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="590dp"
-        android:background="@drawable/line_1_shape"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:alpha="0.8"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/image_1" />
 
-    <TextView
-        android:id="@+id/login"
-        android:layout_width="181dp"
-        android:layout_height="59dp"
-        android:layout_marginLeft="161dp"
-        android:layout_marginTop="530dp"
-        android:fontFamily="Inter"
-        android:text="@string/login_string"
-        android:textColor="@color/map_view_color"
-        android:textSize="36sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="439dp"
+            android:layout_height="133dp"
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="89dp"
+            android:layout_marginBottom="1144dp"
+            android:text="The Voice"
+            android:textColor="@color/black"
+            android:textSize="90dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/forgot_your_password_"
-        android:layout_width="194dp"
-        android:layout_height="33dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="500dp"
-        android:fontFamily="Inter"
-        android:text="@string/forgot_your_password__string"
-        android:textColor="@color/map_view_color"
-        android:textSize="12sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
 
-    <TextView
-        android:id="@+id/the_voice_ek1"
-        android:layout_width="192.68dp"
-        android:layout_height="26.9dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:contentDescription="the_voice_ek1"
-        android:src="@drawable/the_voice_ek1"
-        app:layout_constraintBottom_toTopOf="match_parent"
-        app:layout_constraintLeft_toLeftOf="match_parent"
-        app:layout_constraintRight_toRightOf="match_parent"
-        app:layout_constraintTop_toTopOf="match_parent"/>
-    </TextView>
-
-    <TextView
-    android:id="@+id/if_you_are_new_here_sign_up"
-    android:layout_width="251dp"
-    android:layout_height="37dp"
-    android:layout_marginLeft="110dp"
-    android:layout_marginTop="614dp"
-    android:fontFamily="Inter"
-    android:text="@string/if_you_are_new_here_sign_up_string"
-    android:textAlignment="center"
-    android:textColor="@color/_bg__iphone_13_pro_max___1_ek2_color"
-    android:textSize="16sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toTopOf="match_parent"
-    app:layout_constraintLeft_toLeftOf="match_parent"
-    app:layout_constraintRight_toRightOf="match_parent"
-    app:layout_constraintTop_toTopOf="match_parent"/>
-
-    <EditText
-    android:id="@+id/userid_ek1"
-    android:layout_width="142dp"
-    android:layout_height="31dp"
-    android:layout_marginLeft="39dp"
-    android:layout_marginTop="370dp"
-    android:fontFamily="Inter"
-    android:hint="@string/userid_ek1_string"
-    android:textColor="@color/map_view_color"
-    android:textSize="16sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toTopOf="match_parent"
-    app:layout_constraintLeft_toLeftOf="match_parent"
-    app:layout_constraintRight_toRightOf="match_parent"
-    app:layout_constraintTop_toTopOf="match_parent"/>
-
-    <EditText
-    android:id="@+id/password_ek1"
-    android:layout_width="121dp"
-    android:layout_height="31dp"
-    android:layout_marginLeft="40dp"
-    android:layout_marginTop="450dp"
-    android:fontFamily="Inter"
-    android:hint="@string/password_ek1_string"
-    android:textColor="@color/map_view_color"
-    android:textSize="16sp"
-    android:textStyle="bold"
-    app:layout_constraintBottom_toTopOf="match_parent"
-    app:layout_constraintLeft_toLeftOf="match_parent"
-    app:layout_constraintRight_toRightOf="match_parent"
-    app:layout_constraintTop_toTopOf="match_parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

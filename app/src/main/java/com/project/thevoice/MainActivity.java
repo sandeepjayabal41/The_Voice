@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         final Button mapviewbutton= findViewById(R.id.MapViewButton);
-        final TextView forgotPasswordLink = findViewById(R.id.forgot_your_password_);
 
         mapviewbutton.setOnClickListener(new View.OnClickListener()
         {
@@ -31,11 +30,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        forgotPasswordLink.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //Reset command
-            }
-        });
+
     }
 
 
