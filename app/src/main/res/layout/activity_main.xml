@@ -86,6 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
+        android:layout_marginBottom="104dp"
         android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/MapViewButton"
         app:layout_constraintEnd_toEndOf="parent"
