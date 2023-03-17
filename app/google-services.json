@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "542185628103",
+    "project_id": "the-voice-8d2e3",
+    "storage_bucket": "the-voice-8d2e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542185628103:android:1c445c101c1becc9cbb9e2",
+        "android_client_info": {
+          "package_name": "com.example.the_voice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542185628103-8oalt0a229m2erclobfvnvgigbsilm72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrdReedKoP_4LaOXWVEUiScj6uQxzjix4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542185628103-8oalt0a229m2erclobfvnvgigbsilm72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:542185628103:android:948930bb71f76de3cbb9e2",
+        "android_client_info": {
+          "package_name": "com.project.thevoice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "542185628103-8oalt0a229m2erclobfvnvgigbsilm72.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrdReedKoP_4LaOXWVEUiScj6uQxzjix4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "542185628103-8oalt0a229m2erclobfvnvgigbsilm72.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
