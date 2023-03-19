@@ -8,8 +8,8 @@
 
     <EditText
         android:id="@+id/FirstName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="239dp"
+        android:layout_height="48dp"
         android:layout_marginStart="97dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="104dp"
@@ -25,8 +25,8 @@
 
     <EditText
         android:id="@+id/LastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
         android:layout_marginStart="97dp"
         android:layout_marginTop="139dp"
         android:layout_marginEnd="104dp"
@@ -47,14 +47,15 @@
         android:text="@string/signup"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.535" />
+        app:layout_constraintVertical_bias="0.609" />
 
     <EditText
         android:id="@+id/EnterPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="241dp"
+        android:layout_height="48dp"
         android:layout_marginStart="97dp"
         android:layout_marginTop="280dp"
         android:layout_marginEnd="104dp"
@@ -69,8 +70,8 @@
 
     <EditText
         android:id="@+id/EnterEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="240dp"
+        android:layout_height="48dp"
         android:layout_marginStart="97dp"
         android:layout_marginTop="210dp"
         android:layout_marginEnd="104dp"
@@ -83,4 +84,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="wrap_content"
+        android:layout_height="729dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/signup_background" />
 </androidx.constraintlayout.widget.ConstraintLayout>
