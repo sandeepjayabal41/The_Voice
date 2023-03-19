@@ -17,11 +17,12 @@ public class SignUpActivity extends AppCompatActivity {
 
         binding.SignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 String firstname = binding.FirstName.getText().toString();
-                String lastname = binding..getText().toString();
-                String firstname = binding.FirstName.getText().toString();
-                String firstname = binding.FirstName.getText().toString();
+                String lastname = binding.LastName.getText().toString();
+                String emailid = binding.EnterEmail.getText().toString();
+                String password = binding.EnterPassword.getText().toString();
             }
         });
     }
