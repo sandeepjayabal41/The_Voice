@@ -32,12 +32,22 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         final Button mapviewbutton= findViewById(R.id.MapViewButton);
         final Button loginbutton = findViewById(R.id.LoginButton);
 
         final EditText emailid = findViewById(R.id.EmailAddress);
         final EditText password = findViewById(R.id.Password);
+        final TextView signup = findViewById(R.id.signup);
 
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+            }
+        });
 
         loginbutton.setOnClickListener(new View.OnClickListener() {
             @Override

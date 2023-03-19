@@ -17,6 +17,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/signup_bg" />
 
+    <ImageView
+        android:id="@+id/background_img"
+        android:layout_width="wrap_content"
+        android:layout_height="729dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/signup_bg" />
+
     <EditText
         android:id="@+id/FirstName"
         android:layout_width="239dp"
@@ -28,7 +40,6 @@
         android:ems="10"
         android:hint="John"
         android:inputType="textPersonName"
-        android:text="First Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +56,6 @@
         android:ems="10"
         android:hint="Doe"
         android:inputType="textPersonName"
-        android:text="Last Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +100,6 @@
         android:ems="10"
         android:hint="johndoe@company.com"
         android:inputType="textEmailAddress"
-        android:text="Email ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
