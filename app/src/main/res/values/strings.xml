@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">THE VOICE</string>
+    <string name="app_name">The Voice</string>
     <string name="map_view">Map view</string>
     <string name="ek_img_content">ExportKit Image</string>
     <string name="map_view_string">MAP VIEW</string>
@@ -22,29 +22,4 @@
     <string name="password">Password</string>
     <string name="select_your_university">Select your University</string>
 
-
-    <string-array name="university_list">
-        <item>Select your University</item>
-        <item>Algoma University</item>
-        <item>Brock University</item>
-        <item>Carleton University</item>
-        <item>Lakehead University</item>
-        <item>Laurentian University</item>
-        <item>McMaster University</item>
-        <item>Nipissing University</item>
-        <item>OCAD University</item>
-        <item>Ontario Tech University</item>
-        <item>Queen\'s University</item>
-        <item>Royal Military College of Canada</item>
-        <item>Ryerson University</item>
-        <item>Trent University</item>
-        <item>University of Guelph</item>
-        <item>University of Ottawa</item>
-        <item>University of Toronto</item>
-        <item>University of Waterloo</item>
-        <item>University of Windsor</item>
-        <item>Western University</item>
-        <item>Wilfrid Laurier University</item>
-        <item>York University</item>
-    </string-array>
 </resources>

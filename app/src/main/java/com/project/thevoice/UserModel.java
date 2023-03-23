@@ -36,7 +36,8 @@ public class UserModel
         University = university;
     }
 
-    public UserModel(String firstname, String lastname, String email, String university) {
+    public UserModel(String firstname, String lastname, String email, String university)
+    {
         Firstname = firstname;
         Lastname = lastname;
         Email = email;

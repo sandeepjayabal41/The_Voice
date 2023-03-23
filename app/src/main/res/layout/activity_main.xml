@@ -16,19 +16,21 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/background_image"
-        tools:layout_editor_absoluteY="-83dp" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/MapViewButton"
         android:layout_width="166dp"
         android:layout_height="53dp"
-        android:text="@string/map_view_string"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        android:layout_marginStart="122dp"
+        android:layout_marginTop="634dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="44dp"
+        android:text="View Nearby places"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.871" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -87,53 +89,65 @@
         android:id="@+id/LoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="223dp"
         android:text="@string/login"
-        app:layout_constraintBottom_toTopOf="@+id/MapViewButton"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/forgot_password"
-        android:layout_width="244dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="404dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginBottom="277dp"
+        android:layout_width="189dp"
+        android:layout_height="22dp"
         android:ems="10"
-        android:inputType="textUri"
         android:text="@string/forgot_your_password__string"
+        android:textSize="13dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.581" />
 
     <TextView
         android:id="@+id/care_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/care_home_string"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/MapViewButton"
+        android:layout_marginBottom="115dp"
+        android:text="Are you looking for a care home or food bank ?"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.861" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="512dp"
+        android:text="Ready to get started? "
+        android:textAlignment="center"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/signup"
-        android:layout_width="283dp"
-        android:layout_height="54dp"
-        android:inputType="textUri"
-        android:text="@string/if_you_are_new_here_sign_up_string"
+        android:layout_width="135dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="226dp"
+        android:layout_marginTop="512dp"
+        android:text="Sign up now!"
+        android:textAlignment="center"
+        android:textColor="@color/light_blue_900"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/care_home"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

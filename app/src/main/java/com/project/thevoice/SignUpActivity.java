@@ -31,6 +31,9 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
     ProgressDialog progressDialog;
+
+    DomainCheck dc = new DomainCheck();
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -53,20 +56,18 @@ public class SignUpActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
-//        {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
-//            {
-//                String selectedItem = (String) parent.getItemAtPosition(position);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView)
-//            {
-//                //Do nothing
-//            }
-//        });
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
+            {
+                SignUpButton.setEnabled(!spinner.getSelectedItem().toString().equals("Select Your University"));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
 
         progressDialog = new ProgressDialog(this);
         SignUpButton.setOnClickListener(new View.OnClickListener()
@@ -74,6 +75,7 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
+
                 String firstname = fn.getText().toString();
                 String lastname = ln.getText().toString();
                 String emailid = eid.getText().toString().trim();
@@ -81,52 +83,52 @@ public class SignUpActivity extends AppCompatActivity {
                 String university = spinner.getSelectedItem().toString();
 
                 progressDialog.setMessage("We're setting up your account, this may take a moment...");
-                progressDialog.show();
-                firebaseAuth.createUserWithEmailAndPassword(emailid,password).addOnSuccessListener(new OnSuccessListener<AuthResult>()
+
+                if (dc.domainCheck(university,emailid))
                 {
-                    @Override
-                    public void onSuccess(AuthResult authResult)
-                    {
-                        firebaseFirestore.collection("Users")
-                                .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                                .set(new UserModel(firstname,lastname,emailid,university));
-                        progressDialog.cancel();
-                        AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                        builder.setTitle("All set");
-                        builder.setMessage("Great news! We have just sent a verification link to your email. Please check your inbox and click the link to verify your account.");
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which)
-                            {
-                                startActivity(new Intent(SignUpActivity.this,MainActivity.class));
-                            }
-                        });
-                        AlertDialog dialog = builder.create();
-                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                        if (user != null)
-                        {
-                            user.sendEmailVerification()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>()
-                                    {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            if (task.isSuccessful())
-                                            {
-                                                dialog.show();
+                    progressDialog.show();
+                    firebaseAuth.createUserWithEmailAndPassword(emailid, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            firebaseFirestore.collection("Users")
+                                    .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                                    .set(new UserModel(firstname, lastname, emailid, university));
+                            progressDialog.cancel();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
+                            builder.setTitle("All set");
+                            builder.setMessage("Great news! We have just sent a verification link to your email. Please check your inbox and click the link to verify your account.");
+                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                                }
+                            });
+                            AlertDialog dialog = builder.create();
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if (user != null) {
+                                user.sendEmailVerification()
+                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if (task.isSuccessful()) {
+                                                    dialog.show();
+                                                }
                                             }
-                                        }
-                                    });
+                                        });
+                            }
                         }
-                    }
-                }).addOnFailureListener(new OnFailureListener()
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            progressDialog.cancel();
+                        }
+                    });
+                }
+                else
                 {
-                    @Override
-                    public void onFailure(@NonNull Exception e)
-                    {
-                        Toast.makeText(SignUpActivity.this,e.getMessage(),Toast.LENGTH_SHORT).show();
-                        progressDialog.cancel();
-                    }
-                });
+                    Toast.makeText(SignUpActivity.this, "Invalid email address. Please check and try again.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
