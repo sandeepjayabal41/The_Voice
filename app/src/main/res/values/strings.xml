@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">The Voice</string>
-    <string name="map_view">Map view</string>
-    <string name="ek_img_content">ExportKit Image</string>
-    <string name="map_view_string">MAP VIEW</string>
-    <string name="care_home_string">Are you looking for a care home?</string>
-    <string name="login_string">LOGIN</string>
     <string name="forgot_your_password__string">FORGOT YOUR PASSWORD?</string>
-    <string name="if_you_are_new_here_sign_up_string">if you are new here Sign Up</string>
-    <string name="userid_ek1_string">Userid</string>
-    <string name="password_ek1_string">password</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="title_activity_splash_screen">SplashScreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="peace">Peace</string>
     <string name="email_id">Email ID</string>
     <string name="login">Login</string>
-    <string name="firstname">FirstName</string>
     <string name="signup">Signup</string>
+    <string name="background_image">Background Image</string>
+    <string name="view_nearby_places">View Nearby places</string>
     <string name="password">Password</string>
-    <string name="select_your_university">Select your University</string>
+    <string name="are_you_looking_for_a_care_home_or_food_bank">Are you looking for a care home or food bank ?</string>
+    <string name="ready_to_get_started">Ready to get started?</string>
+    <string name="sign_up_now">Sign up now!</string>
+    <string name="university_college_email_id">University / College Email Id</string>
+    <string name="last_name">Last Name</string>
+    <string name="first_name">First Name</string>
 
 </resources>

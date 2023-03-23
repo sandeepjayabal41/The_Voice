@@ -1,7 +1,5 @@
 package com.project.thevoice;
 
-import static android.icu.text.ListFormatter.Type.OR;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
@@ -10,27 +8,18 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.RenderEffect;
-import android.graphics.Shader;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
+import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import org.w3c.dom.Text;
-
-import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity
@@ -40,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        mAuth = FirebaseAuth.getInstance();
         Objects.requireNonNull(getSupportActionBar()).hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -51,72 +41,124 @@ public class MainActivity extends AppCompatActivity
         final EditText emailid = findViewById(R.id.EmailAddress);
         final EditText password = findViewById(R.id.Password);
         final TextView signup = findViewById(R.id.signup);
+        final TextView forgotpassword = findViewById(R.id.forgot_password);
 
-        signup.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event)
+        forgotpassword.setOnTouchListener((v, event) -> {
+            switch (event.getAction())
             {
-                switch (event.getAction())
-                {
-                    case MotionEvent.ACTION_DOWN:
-                        PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.0f, 1.2f);
-                        PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.0f, 1.2f);
-                        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(v, scaleX, scaleY);
-                        animator.setDuration(200);
-                        animator.start();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                    case MotionEvent.ACTION_CANCEL:
-                        PropertyValuesHolder scaleX2 = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f, 1.0f);
-                        PropertyValuesHolder scaleY2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f, 1.0f);
-                        ObjectAnimator animator2 = ObjectAnimator.ofPropertyValuesHolder(v, scaleX2, scaleY2);
-                        animator2.setDuration(200);
-                        animator2.addListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                case MotionEvent.ACTION_DOWN:
+                    PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.0f, 1.2f);
+                    PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.0f, 1.2f);
+                    ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(v, scaleX, scaleY);
+                    animator.setDuration(200);
+                    animator.start();
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    PropertyValuesHolder scaleX2 = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f, 1.0f);
+                    PropertyValuesHolder scaleY2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f, 1.0f);
+                    ObjectAnimator animator2 = ObjectAnimator.ofPropertyValuesHolder(v, scaleX2, scaleY2);
+                    animator2.setDuration(200);
+                    animator2.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation)
+                        {
+                            if (TextUtils.isEmpty(emailid.getText().toString()))
+                            {
+                                // Display an error message
+                                emailid.setError("This field is required.");
+                                emailid.requestFocus();
                             }
-                        });
-                        animator2.start();
-                        break;
-                }
-                return true;
+                            else
+                            {
+                                mAuth.sendPasswordResetEmail(emailid.getText().toString().trim())
+                                        .addOnCompleteListener(task -> {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(getApplicationContext(), "Password reset email has been sent successfully", Toast.LENGTH_LONG).show();
+                                            } else {
+                                                Toast.makeText(getApplicationContext(), Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+                            }
+                        }
+                    });
+                    animator2.start();
+                    break;
             }
+            return true;
         });
 
-        loginbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
+
+
+
+
+        signup.setOnTouchListener((v, event) -> {
+            switch (event.getAction())
             {
-                mAuth.fetchSignInMethodsForEmail("user@example.com")
-                        .addOnCompleteListener(task -> {
+                case MotionEvent.ACTION_DOWN:
+                    PropertyValuesHolder scaleX = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.0f, 1.2f);
+                    PropertyValuesHolder scaleY = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.0f, 1.2f);
+                    ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(v, scaleX, scaleY);
+                    animator.setDuration(200);
+                    animator.start();
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_CANCEL:
+                    PropertyValuesHolder scaleX2 = PropertyValuesHolder.ofFloat(View.SCALE_X, 1.2f, 1.0f);
+                    PropertyValuesHolder scaleY2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, 1.2f, 1.0f);
+                    ObjectAnimator animator2 = ObjectAnimator.ofPropertyValuesHolder(v, scaleX2, scaleY2);
+                    animator2.setDuration(200);
+                    animator2.addListener(new AnimatorListenerAdapter() {
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            startActivity(new Intent(MainActivity.this,SignUpActivity.class));
+                        }
+                    });
+                    animator2.start();
+                    break;
+            }
+            return true;
+        });
+
+        loginbutton.setOnClickListener(view -> {
+            // Check if the text is empty
+            if (TextUtils.isEmpty(emailid.getText().toString()))
+            {
+                // Display an error message
+                emailid.setError("This field is required.");
+                emailid.requestFocus();
+            }
+            else if (TextUtils.isEmpty(password.getText().toString()))
+            {
+                password.setError("This field is required.");
+                password.requestFocus();
+            }
+            else
+            {
+                mAuth.signInWithEmailAndPassword(emailid.getText().toString(), password.getText().toString())
+                        .addOnCompleteListener(MainActivity.this, task -> {
                             if (task.isSuccessful()) {
-                                List<? extends String> signInMethods = task.getResult().getSignInMethods();
-                                if (signInMethods != null && signInMethods.contains(EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD)) {
-                                    // The email address is registered with Firebase Authentication and the user has signed in with email and password
-                                    FirebaseUser currentUser = mAuth.getCurrentUser();
-                                    if (currentUser != null) {
-                                        // User is signed in
-                                    } else {
-                                        // User is not signed in
-                                    }
-                                } else {
-                                    // The email address is not registered with Firebase Authentication
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                if (user != null && !user.isEmailVerified()) {
+                                    Toast.makeText(getApplicationContext(), "Your email address is not yet verified. Please follow the instructions in the verification email we sent you to complete the process.", Toast.LENGTH_LONG).show();
                                 }
+                                if (user != null && user.isEmailVerified()) {
+                                    Toast.makeText(getApplicationContext(), "Perfect", Toast.LENGTH_SHORT).show();
+                                }
+
                             } else {
-                                // Error occurred
-                                Exception exception = task.getException();
+                                // Handle errors
+                                try {
+                                    throw Objects.requireNonNull(task.getException());
+                                } catch (Exception e) {
+                                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                                }
                             }
+
                         });
             }
         });
 
-        mapviewbutton.setOnClickListener(new View.OnClickListener()
-        {
-            public void onClick(View v)
-            {
-                startActivity(new Intent(v.getContext(), MapsActivity.class));
-            }
-        });
+        mapviewbutton.setOnClickListener(v -> startActivity(new Intent(v.getContext(), MapsActivity.class)));
     }
     }

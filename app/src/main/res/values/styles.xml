@@ -2,23 +2,4 @@
 <resources>
     <!-- iphone_13_pro_max___1 styles -->
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-
-    <style name="Widget.Theme.TheVoice.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
-    </style>
-
-    <style name="Widget.Theme.TheVoice.ButtonBar.Fullscreen" parent="">
-        <item name="android:background">@color/black_overlay</item>
-        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
-    </style>
-
-    <style name="AlwaysEnableScrollBar" parent="Widget.AppCompat.ListView.DropDown">
-        <item name="android:scrollbarFadeDuration">10000000</item>
-    </style>
-
 </resources>

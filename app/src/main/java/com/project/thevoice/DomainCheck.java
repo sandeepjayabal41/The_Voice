@@ -44,11 +44,6 @@ public class DomainCheck
             return true;
         } else if (university.contains("Wilfrid Laurier University") && emailid.contains("wlu.ca")) {
             return true;
-        } else if (university.contains("York University") && emailid.contains("yorku.ca")) {
-            return true;
-        } else
-        {
-            return false;
-        }
+        } else return university.contains("York University") && emailid.contains("yorku.ca");
     }
 }

@@ -1,11 +1,9 @@
 package com.project.thevoice;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,11 +14,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -32,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     ProgressDialog progressDialog;
 
-    DomainCheck dc = new DomainCheck();
+    final DomainCheck dc = new DomainCheck();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -70,65 +63,46 @@ public class SignUpActivity extends AppCompatActivity {
         });
 
         progressDialog = new ProgressDialog(this);
-        SignUpButton.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
+        SignUpButton.setOnClickListener(view -> {
+
+            String firstname = fn.getText().toString();
+            String lastname = ln.getText().toString();
+            String emailid = eid.getText().toString().trim();
+            String password = pwd.getText().toString();
+            String university = spinner.getSelectedItem().toString();
+
+            progressDialog.setMessage("We're setting up your account, this may take a moment...");
+
+            if (dc.domainCheck(university,emailid))
             {
-
-                String firstname = fn.getText().toString();
-                String lastname = ln.getText().toString();
-                String emailid = eid.getText().toString().trim();
-                String password = pwd.getText().toString();
-                String university = spinner.getSelectedItem().toString();
-
-                progressDialog.setMessage("We're setting up your account, this may take a moment...");
-
-                if (dc.domainCheck(university,emailid))
-                {
-                    progressDialog.show();
-                    firebaseAuth.createUserWithEmailAndPassword(emailid, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            firebaseFirestore.collection("Users")
-                                    .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
-                                    .set(new UserModel(firstname, lastname, emailid, university));
-                            progressDialog.cancel();
-                            AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
-                            builder.setTitle("All set");
-                            builder.setMessage("Great news! We have just sent a verification link to your email. Please check your inbox and click the link to verify your account.");
-                            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                                }
-                            });
-                            AlertDialog dialog = builder.create();
-                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            if (user != null) {
-                                user.sendEmailVerification()
-                                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                if (task.isSuccessful()) {
-                                                    dialog.show();
-                                                }
-                                            }
-                                        });
-                            }
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                            progressDialog.cancel();
-                        }
-                    });
-                }
-                else
-                {
-                    Toast.makeText(SignUpActivity.this, "Invalid email address. Please check and try again.", Toast.LENGTH_SHORT).show();
-                }
+                progressDialog.show();
+                firebaseAuth.createUserWithEmailAndPassword(emailid, password).addOnSuccessListener(authResult -> {
+                    firebaseFirestore.collection("Users")
+                            .document(Objects.requireNonNull(FirebaseAuth.getInstance().getUid()))
+                            .set(new UserModel(firstname, lastname, emailid, university));
+                    progressDialog.cancel();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SignUpActivity.this);
+                    builder.setTitle("All set");
+                    builder.setMessage("Great news! We have just sent a verification link to your email. Please check your inbox and click the link to verify your account.");
+                    builder.setPositiveButton("OK", (dialog, which) -> startActivity(new Intent(SignUpActivity.this, MainActivity.class)));
+                    AlertDialog dialog = builder.create();
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        user.sendEmailVerification()
+                                .addOnCompleteListener(task -> {
+                                    if (task.isSuccessful()) {
+                                        dialog.show();
+                                    }
+                                });
+                    }
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(SignUpActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    progressDialog.cancel();
+                });
+            }
+            else
+            {
+                Toast.makeText(SignUpActivity.this, "Invalid email address. Please check and try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }
