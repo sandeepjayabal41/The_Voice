@@ -26,12 +26,21 @@ public class UserModel
         Email = email;
     }
 
-    private String Firstname, Lastname, Email;
+    private String Firstname, Lastname, Email,University;
 
-    public UserModel(String firstname, String lastname, String email) {
+    public String getUniversity() {
+        return University;
+    }
+
+    public void setUniversity(String university) {
+        University = university;
+    }
+
+    public UserModel(String firstname, String lastname, String email, String university) {
         Firstname = firstname;
         Lastname = lastname;
         Email = email;
+        University = university;
     }
 
 
