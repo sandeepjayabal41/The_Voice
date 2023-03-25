@@ -15,5 +15,6 @@
     <string name="university_college_email_id">University / College Email Id</string>
     <string name="last_name">Last Name</string>
     <string name="first_name">First Name</string>
+    <string name="todo">TODO</string>
 
 </resources>

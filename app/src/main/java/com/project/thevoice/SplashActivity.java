@@ -13,7 +13,8 @@ public class SplashActivity extends Activity {
 
         new Handler().postDelayed(new Runnable() {
             @Override
-            public void run() {
+            public void run()
+            {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
                 finish();
             }
