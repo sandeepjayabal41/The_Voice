@@ -11,5 +11,6 @@ public class userScreenAfterLogin extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_screen_after_login);
+
     }
 }

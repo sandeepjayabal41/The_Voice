@@ -20,9 +20,12 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.Task;
 import com.project.thevoice.databinding.ActivityMapsBinding;
 
+import java.util.Arrays;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
     FusedLocationProviderClient mFusedLocationClient;
+    private PlacesClient mPlacesClient;
     Location location = null;
     double latitude,longitude;
     LatLng loc = null;
@@ -65,5 +68,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc,15));
             googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         });
+
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
+        {
+            @Override
+            public void onMapClick(LatLng latLng)
+            {
+                getPlaceId(latLng);
+            }
+        });
+
+        private void getPlaceId(LatLng latLng) {
+        FindCurrentPlaceRequest request = FindCurrentPlaceRequest.builder(Arrays.asList(Place.Field.PLACE_ID))
+                .location(latLng)
+                .build();
+
+        mPlacesClient.findCurrentPlace(request).addOnSuccessListener((response) -> {
+            for (PlaceLikelihood placeLikelihood : response.getPlaceLikelihoods()) {
+                String placeId = placeLikelihood.getPlace().getId();
+                Log.d("MapsActivity", "Place ID: " + placeId);
+                // TODO: Use place ID as needed
+            }
+        }).addOnFailureListener((exception) -> {
+            if (exception instanceof ApiException) {
+                ApiException apiException = (ApiException) exception;
+                int statusCode = apiException.getStatusCode();
+                Log.e("MapsActivity", "Place not found: " + exception.getMessage());
+            }
+        });
     }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+}
 }
