@@ -77,12 +77,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void getPlaceId(LatLng latLng,GoogleMap googleMap)
     {
         FindCurrentPlaceRequest request = FindCurrentPlaceRequest.builder(Collections.singletonList(Place.Field.ID))
-                .location(latLng)
+//                .location(latLng)
                 .build();
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             googleMap.setMyLocationEnabled(true);
-        } else {
+        }
+        else
+        {
             ActivityCompat.requestPermissions(this, new String[]
                     {android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
