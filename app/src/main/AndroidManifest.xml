@@ -19,6 +19,8 @@
 
         <activity
             android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:windowAnimationStyle="@style/SplashAnimation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

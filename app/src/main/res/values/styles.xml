@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- iphone_13_pro_max___1 styles -->
+
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@android:color/black</item>
+        set.duration = 100
+    </style>
+
+    <style name="SplashAnimation">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+    </style>
 
 </resources>
