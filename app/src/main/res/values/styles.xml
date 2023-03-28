@@ -3,7 +3,6 @@
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@android:color/black</item>
-        set.duration = 100
     </style>
 
     <style name="SplashAnimation">
