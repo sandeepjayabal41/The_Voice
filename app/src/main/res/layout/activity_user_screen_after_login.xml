@@ -4,6 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#989191"
     tools:context=".userScreenAfterLogin">
+
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="199dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginBottom="511dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.275"
+        app:srcCompat="@drawable/rewards" />
+
+    <TextView
+        android:id="@+id/greeting_Text"
+        android:layout_width="33dp"
+        android:layout_height="27dp"
+        android:fontFamily="@font/boogaloo"
+        android:text="Hi "
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/user_avatar"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="@+id/user_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        app:layout_constraintVertical_bias="0.053" />
+
+    <TextView
+        android:id="@+id/reward_Points"
+        android:layout_width="108dp"
+        android:layout_height="37dp"
+        android:fontFamily="@font/audiowide"
+        android:text="Points: "
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/user_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.223" />
+
+    <TextView
+        android:id="@+id/user_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="136dp"
+        android:fontFamily="@font/boogaloo"
+        android:text="Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.041"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        app:layout_constraintVertical_bias="0.226"
+        tools:ignore="UnknownId" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="144dp"
+        android:layout_height="61dp"
+        android:fontFamily="@font/audiowide"
+        android:text="THE VOICE"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toTopOf="@+id/user_avatar"
+        app:layout_constraintEnd_toStartOf="@+id/reward_Points"
+        app:layout_constraintHorizontal_bias="0.23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.284" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="410dp"
+        android:layout_height="454dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/bottom_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_avatar"
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="SpeakableTextPresentCheck">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    app:cardCornerRadius="4dp"
+                    app:cardMaxElevation="5dp">
+
+                    <ImageView
+                        android:id="@+id/google_Forms"
+                        android:layout_width="match_parent"
+                        android:layout_height="216dp"
+                        android:focusable="auto"
+                        android:scaleType="centerInside"
+                        android:src="@drawable/google_forms" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,6 +19,8 @@
 
         <activity
             android:name=".SplashActivity"
+            android:theme="@style/SplashTheme"
+            android:windowAnimationStyle="@style/SplashAnimation"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,6 +41,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity
             android:name=".MapsActivity"
