@@ -10,7 +10,7 @@ public class userScreenAfterLogin extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_screen_after_login);
+        setContentView(R.layout.activity_home);
 
     }
 }
