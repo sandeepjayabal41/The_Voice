@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity
                                     Toast.makeText(getApplicationContext(), "Your email address is not yet verified. Please follow the instructions in the verification email we sent you to complete the process.", Toast.LENGTH_LONG).show();
                                 }
                                 if (user != null && user.isEmailVerified()) {
-                                    startActivity(new Intent(MainActivity.this,userScreenAfterLogin.class));
+                                    startActivity(new Intent(MainActivity.this,home.class));
                                 }
 
                             } else {

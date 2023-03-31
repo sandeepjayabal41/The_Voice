@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class userScreenAfterLogin extends AppCompatActivity
+public class home extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)

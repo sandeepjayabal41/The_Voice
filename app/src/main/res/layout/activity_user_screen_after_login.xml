@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#989191"
-    tools:context=".userScreenAfterLogin">
+    tools:context=".home">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="388dp"
-        android:layout_height="529dp"
+        android:layout_width="358dp"
+        android:layout_height="423dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
@@ -29,23 +29,22 @@
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.236"
             app:layout_constraintStart_toEndOf="@+id/greeting_Text"
             app:layout_constraintTop_toBottomOf="@+id/user_avatar"
-            app:layout_constraintVertical_bias="0.197"
+            app:layout_constraintVertical_bias="0.279"
             tools:ignore="UnknownId" />
 
         <ImageView
             android:id="@+id/user_avatar"
-            android:layout_width="199dp"
-            android:layout_height="178dp"
+            android:layout_width="188dp"
+            android:layout_height="152dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.455"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.27"
-            app:srcCompat="@drawable/rewards" />
+            app:layout_constraintVertical_bias="0.424"
+            app:srcCompat="@drawable/user" />
 
         <TextView
             android:id="@+id/message"
@@ -72,10 +71,10 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@+id/user_avatar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.735"
+            app:layout_constraintHorizontal_bias="0.74"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.161" />
 
         <TextView
             android:id="@+id/greeting_Text"
@@ -92,23 +91,8 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/user_avatar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.643" />
+            app:layout_constraintVertical_bias="0.779" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="274dp"
-            android:layout_height="69dp"
-            android:fontFamily="@font/audiowide"
-            android:text="Scroll up to justify your actions"
-            android:textAlignment="center"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.484"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/greeting_Text"
-            app:layout_constraintVertical_bias="0.326" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
