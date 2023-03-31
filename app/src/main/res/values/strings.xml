@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">THE VOICE</string>
-    <string name="forgot_your_password__string">FORGOT YOUR PASSWORD?</string>
+    <string name="forgot_your_password__string">FORGOT PASSWORD?</string>
     <string name="spinner">my spinner</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="email_id">Email ID</string>
