@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">The Voice</string>
+    <string name="app_name">THE VOICE</string>
     <string name="forgot_your_password__string">FORGOT YOUR PASSWORD?</string>
+    <string name="spinner">my spinner</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="email_id">Email ID</string>
     <string name="login">Login</string>
     <string name="signup">Signup</string>
     <string name="background_image">Background Image</string>
-    <string name="view_nearby_places">View Nearby places</string>
+    <string name="view_nearby_places">CLICK HERE</string>
     <string name="password">Password</string>
     <string name="are_you_looking_for_a_care_home_or_food_bank">Are you looking for a care home or food bank ?</string>
     <string name="ready_to_get_started">Ready to get started?</string>

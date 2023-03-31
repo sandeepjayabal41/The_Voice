@@ -4,19 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#989191"
     tools:context=".home">
+
+    <ImageView
+        android:id="@+id/home_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/hands_blur"
+        android:visibility="visible"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="358dp"
-        android:layout_height="423dp"
+        android:layout_width="388dp"
+        android:layout_height="483dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079">
+        app:layout_constraintVertical_bias="0.1">
 
         <TextView
             android:id="@+id/user_Name"
@@ -26,13 +33,14 @@
             android:text="Name"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.236"
+            app:layout_constraintHorizontal_bias="0.118"
             app:layout_constraintStart_toEndOf="@+id/greeting_Text"
             app:layout_constraintTop_toBottomOf="@+id/user_avatar"
-            app:layout_constraintVertical_bias="0.279"
+            app:layout_constraintVertical_bias="0.274"
             tools:ignore="UnknownId" />
 
         <ImageView
@@ -54,27 +62,25 @@
             android:text="THE VOICE"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toTopOf="@+id/user_avatar"
-            app:layout_constraintEnd_toStartOf="@+id/reward_Points"
-            app:layout_constraintHorizontal_bias="0.28"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.47" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/reward_Points"
             android:layout_width="108dp"
             android:layout_height="37dp"
-            android:layout_marginTop="16dp"
             android:fontFamily="@font/audiowide"
             android:text="Points: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toTopOf="@+id/user_avatar"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.74"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.161" />
+            app:layout_constraintTop_toBottomOf="@+id/greeting_Text"
+            app:layout_constraintVertical_bias="0.506" />
 
         <TextView
             android:id="@+id/greeting_Text"
@@ -85,13 +91,15 @@
             android:text="Hi "
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/white"
             android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/user_avatar"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779" />
+            app:layout_constraintVertical_bias="0.75" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
