@@ -18,7 +18,7 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:gravity="bottom"
-        sothree:umanoPanelHeight="68dp"
+        sothree:umanoPanelHeight="300dp"
         sothree:umanoShadowHeight="4dp">
 
         <!--First Screen-->
