@@ -26,10 +26,10 @@ public class home extends AppCompatActivity
         TextView textView1 = findViewById(R.id.user_Name);
 
         Animation animation1 = new AlphaAnimation(0.0f, 1.0f);
-        animation.setDuration(3000); // in milliseconds
+        animation1.setDuration(3000); // in milliseconds
         //animation.setRepeatCount(Animation.INFINITE); // repeat indefinitely
 
-        textView.startAnimation(animation1);
+        textView1.startAnimation(animation1);
 
     }
 }
