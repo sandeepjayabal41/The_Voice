@@ -29,7 +29,8 @@
         </activity>
 
         <activity
-            android:name=".userScreenAfterLogin"
+            android:name=".home"
+            android:theme="@style/AppTheme.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".SignUpActivity"
