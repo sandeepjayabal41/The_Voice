@@ -58,7 +58,8 @@
             android:id="@+id/message"
             android:layout_width="144dp"
             android:layout_height="61dp"
-            android:fontFamily="@font/audiowide"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
             android:text="THE VOICE"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -72,15 +73,17 @@
             android:id="@+id/reward_Points"
             android:layout_width="108dp"
             android:layout_height="37dp"
-            android:fontFamily="@font/audiowide"
+            android:fontFamily="@font/poppins"
             android:text="Points: "
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="@color/white"
+            android:textSize="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.425"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/greeting_Text"
-            app:layout_constraintVertical_bias="0.506" />
+            app:layout_constraintVertical_bias="0.426" />
 
         <TextView
             android:id="@+id/greeting_Text"
