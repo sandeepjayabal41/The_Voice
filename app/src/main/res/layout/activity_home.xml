@@ -19,7 +19,8 @@
         android:layout_marginTop="-2dp"
         android:gravity="bottom"
         sothree:umanoPanelHeight="300dp"
-        sothree:umanoShadowHeight="4dp">
+        sothree:umanoShadowHeight="4dp"
+        tools:ignore="MissingClass">
 
         <!--First Screen-->
         <include

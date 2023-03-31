@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -73,7 +72,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
 
 
-    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -88,16 +86,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
-        ToggleButton filterButton = (ToggleButton) findViewById(R.id.CarehomeButton);
-        filterButton.setOnTouchListener(new View.OnTouchListener()
+
+        Button CarehomeButton = findViewById(R.id.CarehomeButton);
+        CarehomeButton.getBackground().setAlpha(150);
+
+        Button FoodbankButton = findViewById(R.id.FoodbankButton);
+        FoodbankButton.getBackground().setAlpha(150);
+
+        CarehomeButton.setOnClickListener(new View.OnClickListener()
         {
-            @SuppressLint("ClickableViewAccessibility")
-            @Override
-            public boolean onTouch(View view, MotionEvent event)
-            {
-                    if(event.getAction() == MotionEvent.ACTION_DOWN)
+                @Override
+                public void onClick(View view)
                 {
                     try {
+                        mMap.clear();
                         // Load JSON data from the assets folder
                         InputStream is = getAssets().open("careHomeData.json");
                         int size = is.available();
@@ -112,7 +114,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         JSONArray jsonArray = new JSONArray(json);
 
                         // Loop through the care home objects
-                        for (int i = 0; i < jsonArray.length(); i++) {
+                        for (int i = 0; i < jsonArray.length(); i++)
+                        {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                             // Extract the latitude and longitude fields
@@ -122,24 +125,60 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             LatLng latLng = new LatLng(latitude, longitude);
                             mMap.addMarker(new MarkerOptions().position(latLng).title(jsonObject.getString("Name")));
                         }
-                    } catch (IOException | JSONException e) {
+                    }
+                    catch (IOException | JSONException e)
+                    {
                         e.printStackTrace();
                     }
-                    return true;
                 }
-                else if (event.getAction() == MotionEvent.ACTION_UP)
-                {
+        });
 
-                    return true;
+        FoodbankButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                try {
+                    mMap.clear();
+                    // Load JSON data from the assets folder
+                    InputStream is = getAssets().open("foodBanksData.json");
+                    int size = is.available();
+                    byte[] buffer = new byte[size];
+                    is.read(buffer);
+                    is.close();
+
+                    // Convert the JSON data to a string
+                    String json = new String(buffer, "UTF-8");
+
+                    // Parse the JSON data into Java objects
+                    JSONArray jsonArray = new JSONArray(json);
+
+                    // Loop through the care home objects
+                    for (int i = 0; i < jsonArray.length(); i++)
+                    {
+                        JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                        // Extract the latitude and longitude fields
+                        double latitude = jsonObject.getDouble("Latitude");
+                        double longitude = jsonObject.getDouble("Longitude");
+
+                        LatLng latLng = new LatLng(latitude, longitude);
+                        mMap.addMarker(new MarkerOptions().position(latLng).title(jsonObject.getString("Name")));
+                    }
                 }
-                return false;
+                catch (IOException | JSONException e)
+                {
+                    e.printStackTrace();
+                }
             }
         });
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener()
         {
             @Override
             public boolean onQueryTextSubmit(String query)
             {
+                mMap.clear();
                 Places.initialize(getApplicationContext(), "AIzaSyCd83F00FOzhpe2nxTAKivZ7wKoGlGeWCY");
                 // Perform a search with the user's query text
                 searchView.clearFocus();

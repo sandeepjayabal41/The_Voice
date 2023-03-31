@@ -30,25 +30,25 @@
         android:layout_marginBottom="16dp"
         android:background="@color/white"/>
 
-    <androidx.appcompat.widget.AppCompatToggleButton
+    <Button
         android:id="@+id/CarehomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Carehomes"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="65dp"
         android:layout_marginRight="16dp"
         android:background="@drawable/button_shape" />
 
-    <androidx.appcompat.widget.AppCompatToggleButton
+    <Button
         android:id="@+id/FoodbankButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="FoodBanks"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="65dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/button_shape"/>
 
